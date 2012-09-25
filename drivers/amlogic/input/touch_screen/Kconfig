@@ -1,0 +1,200 @@
+#
+# Input core configuration
+#
+
+config SINTEK_CAPACITIVE_TOUCHSCREEN
+	tristate "Sintek capacitive touch panel"
+	default n
+	help
+	  Say Y here if you want to use the Sintek capacitive panel.
+
+	  To compile this driver as a module, choose M here: the
+	  module will be called .
+
+config ITK_CAPACITIVE_TOUCHSCREEN
+	tristate "ITK capacitive touch panel"
+	default n
+	help
+	  Say Y here if you want to use the ITK capacitive panel.
+
+	  To compile this driver as a module, choose M here: the
+	  module will be called .
+
+config EETI_CAPACITIVE_TOUCHSCREEN
+	tristate "EETI capacitive touch panel"
+	default n
+	help
+	  Say Y here if you want to use the EETI capacitive panel.
+
+	  To compile this driver as a module, choose M here: the
+	  module will be called .
+
+config SIS92XX_CAPACITIVE_TOUCHSCREEN
+	tristate "sis92xx capacitive touch panel"
+	depends on I2C
+	default n
+	help
+	  Say Y here if you want to use the sis92xx capacitive panel.
+
+	  To compile this driver as a module, choose M here: the
+	  module will be called .
+
+config HX8520_CAPACITIVE_TOUCHSCREEN
+	tristate "HX8520 capacitive touch panel"
+	depends on I2C
+	default n
+	help
+	  Say Y here if you want to use the HX8520 capacitive panel.
+
+	  To compile this driver as a module, choose M here: the
+	  module will be called .
+	  
+config RAYDIUM_CAPACITIVE_TOUCHSCREEN
+	tristate "Raydium capacitive touch panel"
+	depends on I2C
+	default n
+	help
+	  Say Y here if you want to use the Raydium capacitive panel.
+
+	  To compile this driver as a module, choose M here: the
+	  module will be called .
+	  
+config GOODIX_CAPACITIVE_TOUCHSCREEN
+	tristate "Goodix capacitive touch panel"
+	depends on I2C
+	default n
+	help
+	  Say Y here if you want to use the Goodix capacitive panel.
+
+	  To compile this driver as a module, choose M here: the
+	  module will be called .
+config UOR7X5X_RESISTIVE_TOUCHSCREEN
+	tristate "UOR7X5X resistive touch panel"
+	default n
+	help
+	  Say Y here if you want to use the UOR7X5X resistive panel.
+
+	  To compile this driver as a module, choose M here: the
+	  module will be called .  
+config UOR6X5X_RESISTIVE_TOUCHSCREEN
+	tristate "UOR6X5X resistive touch panel"
+	default n
+	help
+	  Say Y here if you want to use the UOR6X5X resistive panel.
+
+config UOR6153_RESISTIVE_TOUCHSCREEN
+	tristate "UOR6153 resistive touch panel"
+	default n
+	help
+	  Say Y here if you want to use the UOR6153 resistive panel.
+	  
+config PIXCIR_CAPACITIVE_TOUCHSCREEN
+	tristate "pixcir capacitive touch panel"
+	depends on I2C
+	default n
+	help
+	  Say Y here if you want to use the pixcir capacitive panel.
+
+	  To compile this driver as a module, choose M here: the
+	  module will be called .
+
+config PIXCIR_C44_CAPACITIVE_TOUCHSCREEN
+	tristate "pixcir c44 capacitive touch panel"
+	depends on I2C
+	default n
+	help
+	  Say Y here if you want to use the pixcir capacitive panel.
+
+	  To compile this driver as a module, choose M here: the
+	  module will be called .
+
+config PIXCIR_SKIP_CALIBRATION
+	tristate "pixcir capacitive skip auto calibration"
+	depends on (PIXCIR_CAPACITIVE_TOUCHSCREEN || PIXCIR_C44_CAPACITIVE_TOUCHSCREEN)
+	default n
+	help
+	  Say Y here if you want to use the pixcir capacitive panel auto calibration.
+
+	  To compile this driver as a module, choose M here: the
+	  module will be called .
+
+config PIXCIR_RESOLUTION_STD_1024_600_STD0
+	tristate "pixcir capacitive touch panel resolution 1024 600 std0"
+	depends on (PIXCIR_CAPACITIVE_TOUCHSCREEN || PIXCIR_C44_CAPACITIVE_TOUCHSCREEN)
+	default n
+	help
+	  Say Y here if you want to use the pixcir capacitive 1024 600 std1.
+
+	  To compile this driver as a module, choose M here: the
+	  module will be called .
+	  
+config PIXCIR_RESOLUTION_STD_1024_600_STD1
+	tristate "pixcir capacitive touch panel resolution 1024 600 std1"
+	depends on (PIXCIR_CAPACITIVE_TOUCHSCREEN || PIXCIR_C44_CAPACITIVE_TOUCHSCREEN)
+	default n
+	help
+	  Say Y here if you want to use the pixcir capacitive 1024 600 std1.
+
+	  To compile this driver as a module, choose M here: the
+	  module will be called .
+
+config PIXCIR_RESOLUTION_STD_1024_600_NTD0
+	tristate "pixcir capacitive touch panel resolution 1~1023 1~600 ntd0"
+	depends on (PIXCIR_CAPACITIVE_TOUCHSCREEN || PIXCIR_C44_CAPACITIVE_TOUCHSCREEN)
+	default n
+	help
+	  Say Y here if you want to use the pixcir capacitive 1024 600 std1.
+
+	  To compile this driver as a module, choose M here: the
+	  module will be called .
+	  
+config TOUCHSCREEN_NAS_MUTIL
+	tristate "nas mutil touch panel"
+	default n
+	help
+	  Say Y here if you want to use the nas mutil panel.
+
+config FT5301_TOUCHSCREEN
+	tristate "FT5301 capacitive touch panel"
+	default n
+	help
+	  Say Y here if you want to use the ft5301 panel.
+
+config NOVATEK_TOUCHSCREEN
+	tristate "Novatek capacitive touch panel"
+	default n
+	help
+	  Say Y here if you want to use the ft5301 panel.
+
+config ILITEK_CAPACITIVE_TOUCHSCREEN
+	tristate "ilitek mutil touch panel"
+	default n
+	help
+	  Say Y here if you want to use the ilitek mutil panel.	  
+
+config TOUCHSCREEN_INDEPENDENT_I2C
+	tristate "touchscreen at indepent i2c bus"
+	default n
+	help
+	  Say Y here if you want to use the touchscreen at independent i2c bus.
+
+config TOUCHSCREEN_TS_KEY
+	tristate "touchscreen has keyboard support"
+	default n
+	help
+	  Say Y here if you want to use the touchscreen keyboard.
+
+config TOUCHSCREEN_ENABLE_PIN_LEVEL
+	int "touchscreen enable pin level"
+	range 0 1
+	default 1
+	---help---
+	  set the value of enable pin
+
+config TOUCHSCREEN_INIT_ENABLED
+	int "touchscreen init at enable status"
+	range 0 1
+	default 1
+	help
+	  Say Y here if you want to enable touch at boot step
+	  

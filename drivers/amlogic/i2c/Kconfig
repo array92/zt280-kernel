@@ -1,0 +1,56 @@
+menuconfig AMLOGIC_I2C
+        bool "AMLOGIC I2C CONFIG"
+if AMLOGIC_I2C
+choice	
+	prompt "AMLOGIC I2C Hardware Bus support"
+        default I2C_SW_AML
+
+config I2C_APOLLO
+        bool "APOLLO I2C Controller"
+        select I2C
+        select I2C_CHARDEV
+        help
+          If you say yes to this option, support will be included for the I2c
+          controller on ARC APOLLO CHIP.
+
+          This driver can also be built as a module.  If so, the module
+          will be called i2c-apollo.
+
+config I2C_AML
+        bool "Amlogic I2C Driver"
+        select I2C
+        select I2C_CHARDEV
+        select I2C_ALGOBIT
+	help
+          Yet another Amlogic I2C Driver, normal master
+
+config I2C_SW_AML
+        bool "Amlogic software I2C Driver"
+        select I2C
+        select I2C_CHARDEV
+        select I2C_ALGOBIT
+	help
+          Amlogic software I2C Driver, normal gpio simulate I2C, bit algo
+endchoice
+
+config AML_I2C_PM_DISABLE
+	tristate "I2c disable power manager"
+	depends on I2C_AML
+	default n
+	help
+	  Say Y here if you want to disable the i2c power manager.
+
+	  To compile this driver as a module, choose M here: the
+	  module will be called .
+
+config AML_I2C_EXT_PM_DISABLE
+	tristate "I2c(ext) disable power manager"
+	depends on I2C_AML
+	default n
+	help
+	  Say Y here if you want to disable the ext i2c power manager.
+
+	  To compile this driver as a module, choose M here: the
+	  module will be called .
+
+endif

@@ -1,0 +1,74 @@
+on early-init
+    symlink /initlogo.rle.bak /initlogo.rle
+    write /sys/class/graphics/fb0/blank 0
+    write /sys/class/graphics/fb1/blank 1
+
+on init
+    sysclktz 0
+
+    loglevel 7
+# setup the global environment
+    export PATH /sbin:/system/sbin:/system/bin:/system/xbin:/system0/sbin:/system0/bin:/system0/xbin
+    export LD_LIBRARY_PATH /system/lib:/system0/lib
+    export ANDROID_BOOTLOGO 1
+    export ANDROID_ROOT /system
+    export ANDROID_ASSETS /system/app
+    export ANDROID_DATA /data
+    export EXTERNAL_STORAGE /sdcard
+
+    mkdir /sdcard
+    mkdir /media
+    mkdir /data
+    mkdir /cache
+    mount /tmp /tmp tmpfs
+##    insmod /system/lib/avnftl.ko
+
+on boot
+
+    ifup lo
+    hostname localhost
+    domainname localdomain
+
+    # Amlogic patch
+    write /sys/power/wake_lock true
+    class_start default
+
+## Daemon processes to be run by init.
+##
+# Amlogic patch to set screen size
+service display /sbin/set_display_mode.sh panel
+    console
+    oneshot
+
+service console /sbin/sh
+    console
+
+# adbd is controlled by the persist.service.adb.enable system property
+service adbd /sbin/adbd
+    disabled
+
+on property:persist.service.adb.enable=1
+    start adbd
+
+on property:persist.service.adb.enable=0
+    stop adbd
+
+service recovery /sbin/recovery
+    console
+    oneshot
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

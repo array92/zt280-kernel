@@ -1,0 +1,38 @@
+#
+# Canvas management driver configuration
+#
+
+menu "zt interface"
+
+config ZT_INTERFACE
+    bool "zt android interface"
+    default y
+	help
+	  Select to enable Canvas management driver.
+
+config ZT_ENCRYPT
+	default n
+	bool "zt encrypt"
+	---help---
+	  zt encrypt
+
+config UART_GPS
+        bool "USE UART GPS"     
+        depends on ZT_INTERFACE
+        default n
+        help
+           hardware uart gps control
+config GPS_POWER_CONTROL
+        bool "USE GPS POWER CONTROL"     
+        depends on UART_GPS
+        default n
+        help
+           gps power control  
+config GPS_SWITCH_CONTROL
+        bool "USE GPS SWITCH CONTROL"     
+        depends on UART_GPS
+        default n
+        help
+           gps switch control  
+
+endmenu

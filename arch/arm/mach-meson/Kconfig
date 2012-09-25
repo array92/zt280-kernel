@@ -1,0 +1,77 @@
+menu "Meson platform type"
+	depends on ARCH_MESON
+	  
+config MACH_MESON_8726M_REFB04
+	select GENERIC_ALLOCATOR
+	bool "Support M1 8726(K8) platform(machid=2956)"
+	help
+	  Include support for the AMLOGIC M1 8726M Emulation Baseboard platform.  
+	  
+if MACH_MESON_8726M_REFB04
+
+choice
+	prompt "hardware board code"
+	depends on MACH_MESON_8726M_REFB04
+	help
+	  Select board type.
+
+
+	  
+config BOARD_G0
+	bool "board g0"
+	depends on MACH_MESON_8726M_REFB04
+	help
+	  inand 10 inch	plastic
+
+config BOARD_G1
+	bool "board g1"
+	depends on MACH_MESON_8726M_REFB04
+	help
+	  inand 10 inch	plastic cap
+	  
+config BOARD_H0
+	bool "board h0"
+	depends on MACH_MESON_8726M_REFB04
+	help
+	  inand 10 inch meta
+config BOARD_H1
+	bool "board h1"
+	depends on MACH_MESON_8726M_REFB04
+	help
+	  nand 10 inch  meta cap	  
+
+config BOARD_K0
+	bool "board k0"
+	depends on MACH_MESON_8726M_REFB04
+	help
+	  inand 10 inch plastic gps	  
+config BOARD_K1
+	bool "board k1"
+	depends on MACH_MESON_8726M_REFB04
+	help
+	  inand 10 inch plastic gps cap
+endchoice
+
+endif
+
+config BOARD_NAME
+	string "board'name"
+	default ""
+	help
+	  board'name
+
+config IMAGE_RECOVERY
+    bool "image for recovery"
+    default n
+	help
+	  Select to enable indicate current is recovery image.  	  
+	  	  
+config MESON_CLOCK_TICK_RATE
+    int "Clock Tick Rate"
+	default 25000000
+
+config CONFIG_SDCARD_SLEEP
+	int "sdcard wait for seconds"
+	default "0"
+
+endmenu

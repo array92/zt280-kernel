@@ -1,0 +1,18 @@
+#ifndef	_PIXCIR_I2C_TS_H
+#define	_PIXCIR_I2C_TS_H
+
+#define	TRUE		1
+#define	ATTB_PIN_LOW	0
+
+#define PROTOCOL_ADDR 0
+#define PROTOCOL_LEN 0x3F
+#define PROTOCOL_HEAD_LEN 3
+
+#define PROTOCOL_POINT_LEN 6
+
+#define I2C_STARTTCH_READ       0
+#define I2C_STARTTCH_POINT1     (I2C_STARTTCH_READ + PROTOCOL_HEAD_LEN + PROTOCOL_POINT_LEN)
+
+#define POINTS_MAX	10
+
+#endif

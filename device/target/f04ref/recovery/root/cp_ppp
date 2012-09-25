@@ -1,0 +1,19 @@
+#!/system/bin/busybox sh
+
+## if   [ !  -e   /data/etc/init.evdo-pppd   ];then
+busybox chmod 777 /data/etc/ -R
+if   [ !  -d   /data/etc/ppp   ];then
+	busybox mkdir /data/etc
+	busybox cp -rf /system/etc/ppp /data/etc/
+	busybox cp /system/etc/init.evdo-pppd /data/etc/
+	busybox cp /system/etc/init.gprs-pppd /data/etc/
+	busybox touch /data/wcdma.txt
+	busybox echo 2 > /proc/driver/nastech
+	busybox cp /system/etc/rotate.txt /data/etc/
+fi
+
+if   [ !  -d   /data/data/eu.chainfire.cf3d   ];then
+	cd /data
+	busybox tar xvf /system/etc/cf.tar.bz
+fi
+
