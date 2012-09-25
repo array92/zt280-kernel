@@ -8,6 +8,9 @@ Make sure you got the arm-none-linux-gnueabi compiler from amlogic, put it where
 Enable your board version by uncommenting the corresponding lines in maketest.sh,
 pull a config from your running tablet (proc/config.gz) and copy it in the root folder as .config.
 
+Also copy the ramdisk from your device, preferably by unpacking the *.kernel and *.recovery files with the supplied scripts.
+Move ramdisk content to a new folder in device and edit makeone_recovery and makeone_release accordingly to include your files.
+
 run ". env.sh" from terminal,
 run makemenuconfig, load the .config file and configure to your needs.
 run ./maketest.sh
